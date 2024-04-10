@@ -7,7 +7,7 @@ A full-stack e-commerce web application for selling t-shirts and caps, built as 
 - **Frontend:**
   - React (React Router, Redux)
   - Vite
-  - Bootstrap (or your chosen CSS framework)
+  - Bootstrap
 - **Backend:**
   - Node.js
   - Express.js
