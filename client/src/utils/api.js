@@ -14,3 +14,12 @@ export const fetchProducts = async () => {
 };
 
 // Add more functions for other API calls as needed (fetchProductById, etc.)
+export const fetchProductById = async (productId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${productId}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

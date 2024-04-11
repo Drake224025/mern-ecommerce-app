@@ -139,3 +139,6 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+// TODO: Implement data persistence (e.g., using localStorage) to preserve the cart
+//       and potentially checkout form data across sessions.

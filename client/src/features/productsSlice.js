@@ -1,6 +1,6 @@
 // client/src/features/productsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchProducts } from "../utils/api";
+import { fetchProducts, fetchProductById } from "../utils/api";
 
 const initialState = {
   products: [],
@@ -13,6 +13,13 @@ export const fetchProductsAsync = createAsyncThunk(
   async () => {
     const products = await fetchProducts();
     return products;
+  }
+);
+
+export const fetchProductByIdAsync = createAsyncThunk(
+  "products/fetchProductById",
+  async (productId) => {
+    return await fetchProductById(productId); // Call api.js function
   }
 );
 
@@ -33,6 +40,20 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProductsAsync.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchProductByIdAsync.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+        state.product = null; // Reset product on new fetch
+      })
+      .addCase(fetchProductByIdAsync.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.product = action.payload;
+      })
+      .addCase(fetchProductByIdAsync.rejected, (state, action) => {
+        state.isLoading = false;
+        state.product = null;
         state.error = action.error.message;
       });
   },
