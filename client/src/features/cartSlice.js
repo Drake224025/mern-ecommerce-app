@@ -47,6 +47,11 @@ const cartSlice = createSlice({
       state.totalQuantity--;
     },
     // Add more reducers as needed (clear cart, update quantity, etc.)
+    clearCart(state) {
+      state.items = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+    },
   },
 });
 
@@ -55,6 +60,9 @@ const persistConfig = {
   storage,
 };
 export { persistConfig };
-export const { addItemToCart, removeItemFromCart /*... other actions*/ } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  removeItemFromCart /*... other actions*/,
+  clearCart,
+} = cartSlice.actions;
 export default persistReducer(persistConfig, cartSlice.reducer); // Wrap reducer

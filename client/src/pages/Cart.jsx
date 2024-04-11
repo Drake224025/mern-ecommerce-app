@@ -2,6 +2,7 @@
 // src/pages/Cart.jsx
 import { useSelector, useDispatch } from "react-redux";
 import { removeItemFromCart } from "../features/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { items, totalAmount } = useSelector((state) => state.cart);
@@ -34,6 +35,7 @@ const Cart = () => {
       {/* Display Total Amount */}
       <div className="cart-total">
         <h3>Total: ${totalAmount}</h3>
+        <Link to="/checkout">Checkout</Link>
       </div>
     </div>
   );

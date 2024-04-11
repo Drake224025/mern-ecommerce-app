@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Navbar from "./components/Navbar";
+import store from "./store"; //  Set up Redux
+// ... import other pages
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ProductListing from "./pages/ProductListing";
-// ... import other pages
-import store from "./store"; //  Set up Redux later
+import Checkout from "./pages/Checkout";
+import OrderConfirmation from "./pages/OrderConfirmation";
 
 const App = () => {
   return (
@@ -18,7 +20,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ProductListing />} />
           <Route path="/cart" element={<Cart />} />
-          {/* ... Routes for other pages */}
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
         </Routes>
       </BrowserRouter>
     </Provider>
