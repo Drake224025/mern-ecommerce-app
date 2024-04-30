@@ -1,3 +1,9 @@
+## Project Outline
+
+**Project Title:** Portfolio E-commerce Project - Resume Templates
+
+**Product:** Downloadable, customizable resume templates in various styles (modern, creative, etc.).
+
 ## Database Tables
 
 **templates**
